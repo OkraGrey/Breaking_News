@@ -1,16 +1,13 @@
 import "./App.css";
-import { useSelector } from "react-redux";
+import Header from "./components/Header/Header";
 function App() {
-  const news = useSelector((store) => store.newsSlice.news);
   return (
-    <>
-      <div>
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-        {news.map((n) => {
-          return <li key={n.id}>{n.title}</li>;
-        })}
+    <div className="w-full">
+      <Header />
+      <div className="border-2">
+        <h1>Main BODY HERE....</h1>
       </div>
-    </>
+    </div>
   );
 }
 
