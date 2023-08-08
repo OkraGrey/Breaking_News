@@ -6,7 +6,7 @@ const Header = () => {
     <nav className="w-full flex items-center">
       <div className="h-8 w-8 rounded-md mx-4 my-2">
         <a href="/">
-          <img src="../public/S.png" alt="" />
+          <img src="/S.png" alt="" />
         </a>
       </div>
       {/* nav elements */}
