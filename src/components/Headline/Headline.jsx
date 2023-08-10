@@ -1,13 +1,13 @@
 const Headline = () => {
   return (
     <div
-      className=" lg:w-full transition ease-in-out delay-50 duration-300 hover:-translate-y-1 hover:scale-105 lg:mb-16 w-72 h-auto 
+      className=" lg:w-full transition ease-in-out delay-50 duration-300 hover:-translate-y-1 hover:scale-105 lg:mb-16 sm:w-72 sm:h-auto w-80 h-auto mb-2
     "
     >
       <a href="/" className="inline lg:block">
         {/* Image for headline */}
         <div className="lg:flex lg:flex-row">
-          <div className="w-72 h-auto lg:w-128 lg:h-80">
+          <div className="sm:w-72 sm:h-auto w-80 h-auto  lg:w-128 lg:h-80">
             <img
               className="h-full w-full rounded-lg "
               src="https://s.yimg.com/uu/api/res/1.2/TOBVzXB9CqfFypYGUUhnEg--~B/Zmk9ZmlsbDtoPTYzMDtweW9mZj0wO3c9MTIwMDthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2023-08/6ebfcc70-366e-11ee-bfb1-b9372c4f414b.cf.jpg"

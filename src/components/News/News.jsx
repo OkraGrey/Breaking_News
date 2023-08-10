@@ -1,8 +1,8 @@
 const News = () => {
   return (
-    <div className="  lg:mt-4 transition ease-in-out delay-50 duration-300 hover:-translate-y-1 hover:scale-105">
+    <div className="  lg:mt-4 transition ease-in-out delay-50 duration-300 hover:-translate-y-1 hover:scale-105 mb-2">
       <a href="" className="inline-block">
-        <div className="container mx-auto flex flex-col w-72 h-auto">
+        <div className="container mx-auto flex flex-col sm:w-72 sm:h-auto w-80 h-auto">
           <div>
             <img
               className="rounded-lg w-full h-full"
