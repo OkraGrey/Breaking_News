@@ -1,4 +1,5 @@
 import "./App.css";
+import "@fontsource/roboto/400.css";
 import Header from "./components/Header/Header";
 import NewsContainer from "./components/NewsContainer/NewsContainer";
 import PageTitle from "./components/PageTitle/PageTitle";

@@ -26,13 +26,14 @@ const NewsContainer = () => {
   // console.log("asfasfasfas", articles);
   return (
     <>
-      <div className="flex flex-wrap sm:justify-between justify-center flex-row sm:gap-x-6 m-2">
+      <div className="mx-auto flex flex-wrap sm:justify-between justify-center flex-row sm:gap-x-6 m-2">
         {articles &&
           paginatedArticles.map((art, index) => (
             <News key={index} index={index} data={art} />
           ))}
-        <div className="flex justify-center w-full">
+        <div className="flex justify-center w-full mb-8">
           <Pagination
+            className="border-8"
             totalNews={totalNews}
             NewsPerPage={newsPerPage}
             setCurrentPage={setCurrentPage}

@@ -1,3 +1,5 @@
+import * as React from "react";
+
 const Pagination = ({ totalNews, NewsPerPage, setCurrentPage }) => {
   console.log("Total news :", totalNews, "News per page", NewsPerPage);
   let pages = [];
@@ -9,7 +11,7 @@ const Pagination = ({ totalNews, NewsPerPage, setCurrentPage }) => {
     return (
       <button
         onClick={() => setCurrentPage(page)}
-        className="p-4 bg-rose-400/60 mx-4"
+        className="px-4 py-2 mx- rounded-lg  border-rose-400/60 border-2 transition-all ease-out duration-150 hover:bg-rose-400 focus:bg-rose-400"
         key={index}
       >
         {page}
