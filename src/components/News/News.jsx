@@ -2,6 +2,8 @@ import Headline from "../Headline/Headline";
 
 const News = (props) => {
   // console.log(props);
+  const dateObject = new Date(props.data.publishedAt);
+  const formattedDate = dateObject.toISOString().split("T")[0];
   return props.index == 0 ? (
     <Headline data={props.data} />
   ) : (
@@ -17,7 +19,7 @@ const News = (props) => {
           </div>
 
           <div className="text-gray-500/80 text-xs mt-2 mb-1">
-            <p>{props.data.publishedAt}</p>
+            <p>{formattedDate}</p>
           </div>
 
           <div className="text-2xl pb-1 tracking-wide">

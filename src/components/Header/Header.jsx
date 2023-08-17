@@ -2,10 +2,12 @@ import Element from "./Element";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 const Header = () => {
   const home = "HOME";
-  const about = "ABOUT";
-  const [toggle, setToggle] = useState(false);
+  const tech = "TECHNOLOGY";
+  const search = "SEARCH";
+  const [toggle, setToggle] = useState(true);
   const handleToggle = () => {
     setToggle(!toggle);
   };
@@ -14,6 +16,7 @@ const Header = () => {
       window.innerWidth > 768 ? setToggle(true) : setToggle(false);
     });
   }, [window.innerWidth]);
+  console.log("Toggle", toggle);
   return (
     <nav className="w-full flex items-center justify-center max-md:flex-col   max-md:bg-white">
       <div className="w-full max-md:flex justify-between ">
@@ -43,10 +46,18 @@ const Header = () => {
           max-md:top-0 max-md:left-0 max-md:opacity-100
           "
           >
-            <Element title={home} />
-            <Element title={about} />
-            <Element title={"CONTACT"} />
-            <Element title={"BLOGS"} />
+            <Link to={"/"}>
+              <Element title={home} />
+            </Link>
+            <Link to={"/tech"}>
+              <Element title={tech} />
+            </Link>
+            <Link to={"/search"}>
+              <Element title={search} />
+            </Link>
+            <Link to={"/buisiness"}>
+              <Element title="BUSINESS" />
+            </Link>
           </ul>
         )}
       </div>

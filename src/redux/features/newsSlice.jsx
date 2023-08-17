@@ -8,6 +8,7 @@ const techCrunchHeadLinesUrl = `https://newsapi.org/v2/top-headlines?sources=tec
 const initialState = {
   is_Loading: false,
   news: [],
+  searchedNews: [],
   error: undefined,
 };
 
@@ -17,10 +18,25 @@ export const fetchNews = createAsyncThunk("news/fetch", async () => {
   return response.data;
 });
 
-// export const searchArticles = createAsyncThunk("news/search", async (url) => {
-//   const response = await axios.get(url);
-//   return response.data;
-// });
+export const searchArticles = createAsyncThunk("news/search", async (url) => {
+  const response = await axios.get(url);
+  // console.log(response);
+  return response.data;
+});
+
+// Action for business page
+export const fetchBusinessNews = createAsyncThunk(
+  "news/fetchBusiness",
+  async () => {
+    const response = await axios.get(businessHeadLinesUrl);
+    return response.data;
+  }
+);
+
+export const fetchTech = createAsyncThunk("news/fetchTech", async () => {
+  const response = await axios.get(techCrunchHeadLinesUrl);
+  return response.data;
+});
 
 const newsSlice = createSlice({
   name: "news",
@@ -44,64 +60,68 @@ const newsSlice = createSlice({
       state.error = action.payload;
     });
 
-    // Business
+    // Business;
+    // Pending;
+    builder.addCase(fetchBusinessNews.pending, (state, action) => {
+      state.loading = true;
+      state.searchedNews = [];
+    });
+
+    // Fullfilled
+    builder.addCase(fetchBusinessNews.fulfilled, (state, action) => {
+      state.loading = false;
+      state.news = action.payload;
+    });
+
+    // Rejected
+    builder.addCase(fetchBusinessNews.rejected, (state, action) => {
+      state.loading = false;
+      state.news = [];
+      state.error = action.payload;
+    });
+
+    // Tech Crunch
     // Pending
-    // builder.addCase(fetchBusinessNews.pending, (state, action) => {
-    //   state.loading = true;
-    //   state.searchedNews = [];
-    // });
+    builder.addCase(fetchTech.pending, (state, action) => {
+      state.loading = true;
+      state.searchedNews = [];
+    });
 
-    // // Fullfilled
-    // builder.addCase(fetchBusinessNews.fulfilled, (state, action) => {
-    //   state.loading = false;
-    //   state.news = action.payload;
-    // });
+    // Fullfilled
+    builder.addCase(fetchTech.fulfilled, (state, action) => {
+      state.loading = false;
+      state.news = action.payload;
+    });
 
-    // // Rejected
-    // builder.addCase(fetchBusinessNews.rejected, (state, action) => {
-    //   state.loading = false;
-    //   state.news = [];
-    //   state.error = action.payload;
-    // });
-
-    // // Tech Crunch
-    // // Pending
-    // builder.addCase(fetchTechCrunhNews.pending, (state, action) => {
-    //   state.loading = true;
-    //   state.searchedNews = [];
-    // });
-
-    // // Fullfilled
-    // builder.addCase(fetchTechCrunhNews.fulfilled, (state, action) => {
-    //   state.loading = false;
-    //   state.news = action.payload;
-    // });
-
-    // // Rejected
-    // builder.addCase(fetchTechCrunhNews.rejected, (state, action) => {
-    //   state.loading = false;
-    //   state.news = [];
-    //   state.error = action.payload;
-    // });
+    // Rejected
+    builder.addCase(fetchTech.rejected, (state, action) => {
+      state.loading = false;
+      state.news = [];
+      state.error = action.payload;
+    });
 
     // Article Searching
     // Pending
-    // builder.addCase(searchArticles.pending, (state, action) => {
-    //   state.loading = true;
-    // });
+    builder.addCase(searchArticles.pending, (state, action) => {
+      state.loading = true;
+    });
 
-    // // Fullfilled
-    // builder.addCase(searchArticles.fulfilled, (state, action) => {
-    //   state.loading = false;
-    //   state.searchedNews = [action.payload];
-    // });
+    // Fullfilled
+    builder.addCase(searchArticles.fulfilled, (state, action) => {
+      // console.log("search Fullfilled");
+      state.loading = false;
+      state.searchedNews = [action.payload];
+      // console.log(state.searchedNews);
+    });
 
-    // // Rejected
-    // builder.addCase(searchArticles.rejected, (state, action) => {
-    //   state.loading = false;
-    //   state.searchedNews = [];
-    //   state.error = action.payload;
-    // });
+    // Rejected
+    builder.addCase(searchArticles.rejected, (state, action) => {
+      // console.log("search rejected");
+
+      state.loading = false;
+      state.searchedNews = [];
+      state.error = action.payload;
+    });
   },
 });
 

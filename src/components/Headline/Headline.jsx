@@ -1,9 +1,11 @@
 const Headline = ({ data }) => {
-  console.log("data :", data);
+  // console.log("data :", data);
   const { url, urlToImage, title, content, publishedAt } = data;
+  const dateObject = new Date(publishedAt);
+  const formattedDate = dateObject.toISOString().split("T")[0];
   return (
     <div
-      className=" lg:w-full transition ease-in-out delay-50 duration-300 hover:-translate-y-1 hover:scale-105 lg:mb-16 md:w-90 sm:w-72 sm:h-auto h-auto mb-2
+      className=" lg:w-full transition ease-in-out delay-50 duration-300 hover:-translate-y-1 hover:scale-105 lg:mb-16 md:w-90 sm:w-72 sm:h-auto h-auto mb-2 
     "
     >
       <a href={url} className="inline lg:block">
@@ -19,7 +21,7 @@ const Headline = ({ data }) => {
                   className="text-xs text-gray-500/80
                  mt-2 mb-1"
                 >
-                  {publishedAt}
+                  {formattedDate}
                 </h3>
               </div>
               <div>
