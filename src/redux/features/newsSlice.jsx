@@ -6,7 +6,7 @@ const businessHeadLinesUrl = `https://newsapi.org/v2/top-headlines?country=us&la
 const techCrunchHeadLinesUrl = `https://newsapi.org/v2/top-headlines?sources=techcrunch&language=en&apiKey=${apiKey}`;
 
 const initialState = {
-  is_Loading: false,
+  is_loading: false,
   news: [],
   searchedNews: [],
   error: undefined,
@@ -44,18 +44,18 @@ const newsSlice = createSlice({
   extraReducers: (builder) => {
     // Pending
     builder.addCase(fetchNews.pending, (state, action) => {
-      state.loading = true;
+      state.is_loading = true;
       state.searchedNews = [];
     });
     // Fullfilled
     builder.addCase(fetchNews.fulfilled, (state, action) => {
-      state.loading = false;
+      state.is_loading = false;
       state.news = action.payload;
     });
 
     // Rejected
     builder.addCase(fetchNews.rejected, (state, action) => {
-      state.loading = false;
+      state.is_loading = false;
       state.news = [];
       state.error = action.payload;
     });
@@ -63,19 +63,19 @@ const newsSlice = createSlice({
     // Business;
     // Pending;
     builder.addCase(fetchBusinessNews.pending, (state, action) => {
-      state.loading = true;
+      state.is_loading = true;
       state.searchedNews = [];
     });
 
     // Fullfilled
     builder.addCase(fetchBusinessNews.fulfilled, (state, action) => {
-      state.loading = false;
+      state.is_loading = false;
       state.news = action.payload;
     });
 
     // Rejected
     builder.addCase(fetchBusinessNews.rejected, (state, action) => {
-      state.loading = false;
+      state.is_loading = false;
       state.news = [];
       state.error = action.payload;
     });
@@ -83,19 +83,19 @@ const newsSlice = createSlice({
     // Tech Crunch
     // Pending
     builder.addCase(fetchTech.pending, (state, action) => {
-      state.loading = true;
+      state.is_loading = true;
       state.searchedNews = [];
     });
 
     // Fullfilled
     builder.addCase(fetchTech.fulfilled, (state, action) => {
-      state.loading = false;
+      state.is_loading = false;
       state.news = action.payload;
     });
 
     // Rejected
     builder.addCase(fetchTech.rejected, (state, action) => {
-      state.loading = false;
+      state.is_loading = false;
       state.news = [];
       state.error = action.payload;
     });
@@ -103,13 +103,13 @@ const newsSlice = createSlice({
     // Article Searching
     // Pending
     builder.addCase(searchArticles.pending, (state, action) => {
-      state.loading = true;
+      state.is_loading = true;
     });
 
     // Fullfilled
     builder.addCase(searchArticles.fulfilled, (state, action) => {
       // console.log("search Fullfilled");
-      state.loading = false;
+      state.is_loading = false;
       state.searchedNews = [action.payload];
       // console.log(state.searchedNews);
     });
@@ -118,7 +118,7 @@ const newsSlice = createSlice({
     builder.addCase(searchArticles.rejected, (state, action) => {
       // console.log("search rejected");
 
-      state.loading = false;
+      state.is_loading = false;
       state.searchedNews = [];
       state.error = action.payload;
     });
@@ -143,15 +143,15 @@ export default newsReducer;
 //   initialState,
 //   extraReducers: {
 //     [getNews.pending]: (state, action) => {
-//       state.is_Loading = true;
+//       state.is_is_loading = true;
 //     },
 //     [getNews.fulfilled]: (state, action) => {
-//       state.is_Loading = false;
+//       state.is_is_loading = false;
 //       console.log("payload", action.payload);
 //       state.news = action.payload;
 //     },
 //     [getNews.rejected]: (state, action) => {
-//       state.is_Loading = false;
+//       state.is_is_loading = false;
 //       state.news = [];
 //     },
 //   },

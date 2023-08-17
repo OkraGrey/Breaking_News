@@ -10,6 +10,7 @@ const Search = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
   const [toggle, setToggle] = useState(false);
+  const [count, setCount] = useState(0);
 
   console.log(search);
 
@@ -18,11 +19,13 @@ const Search = () => {
     `;
     dispatch(searchArticles(address));
     setToggle(!toggle);
+    setCount(1);
   };
 
-  const art = useSelector((store) => store.newsSlice.searchedNews[0].articles);
-
-  console.log(art);
+  const loading = useSelector((store) => store.newsSlice.is_loading);
+  const art = useSelector((store) => store.newsSlice.searchedNews);
+  // const art = useSelector((store) => store.newsSlice.searchedNews[0].articles);
+  // console.log("loading", loading);
 
   return (
     <div className="w-full">
@@ -31,7 +34,19 @@ const Search = () => {
 
         <SearchForm search={search} setSearch={setSearch} onSubmit={onSubmit} />
 
-        <NewsContainer articles={art} />
+        {count == 0 ? (
+          ""
+        ) : loading ? (
+          <h1>Loading</h1>
+        ) : (
+          <NewsContainer articles={art[0].articles} />
+        )}
+
+        {/* {count > 0 && loading == false ? (
+          <NewsContainer articles={art[0].articles} />
+        ) : (
+          <h1></h1>
+        )} */}
       </div>
     </div>
   );
