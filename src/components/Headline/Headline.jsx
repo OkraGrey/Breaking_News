@@ -1,16 +1,20 @@
-const Headline = () => {
+const Headline = ({ data }) => {
+  // console.log("data :", data);
+  const { url, urlToImage, title, content, publishedAt } = data;
+  const dateObject = new Date(publishedAt);
+  const formattedDate = dateObject.toISOString().split("T")[0];
   return (
     <div
-      className=" lg:w-full transition ease-in-out delay-50 duration-300 hover:-translate-y-1 hover:scale-105 lg:mb-16 w-72 h-auto 
+      className=" lg:w-full transition ease-in-out delay-50 duration-300 hover:-translate-y-1 hover:scale-105 lg:mb-16 md:w-90 sm:w-72 sm:h-auto h-auto mb-2 
     "
     >
-      <a href="/" className="inline lg:block">
+      <a href={url} className="inline lg:block">
         {/* Image for headline */}
-        <div className="lg:flex lg:flex-row">
-          <div className="w-72 h-auto lg:w-128 lg:h-80">
+        <div className="lg:flex lg:flex-row ">
+          <div className=" h-72  lg:w-128 md:h-72 sm:h-60 lg:h-80">
             <img
-              className="h-full w-full rounded-lg "
-              src="https://s.yimg.com/uu/api/res/1.2/TOBVzXB9CqfFypYGUUhnEg--~B/Zmk9ZmlsbDtoPTYzMDtweW9mZj0wO3c9MTIwMDthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2023-08/6ebfcc70-366e-11ee-bfb1-b9372c4f414b.cf.jpg"
+              className="h-full w-full rounded-lg object-cover"
+              src={urlToImage}
             />
           </div>
           <div className=" h-auto flex-1 ">
@@ -20,7 +24,7 @@ const Headline = () => {
                   className="text-xs text-gray-500/80
                  mt-2 mb-1"
                 >
-                  June 23, 2018
+                  {formattedDate}
                 </h3>
               </div>
               <div>
@@ -29,14 +33,12 @@ const Headline = () => {
                 text-2xl pb-1 tracking-wide
                 "
                 >
-                  News Title Should be containing 3 lines. Hence can be checked
+                  {title}
                 </h1>
               </div>
               <div>
                 <p className="xl:text-sm text-xs  xl:mt-5 lg:mt-1 text-gray-500 my-2">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Explicabo molestiae quaerat ex? Quam illo impedit atque
-                  officia illum, fugit soluta.
+                  {content}
                 </p>
               </div>
             </div>
