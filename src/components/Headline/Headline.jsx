@@ -10,9 +10,12 @@ const Headline = ({ data }) => {
     >
       <a href={url} className="inline lg:block">
         {/* Image for headline */}
-        <div className="lg:flex lg:flex-row">
-          <div className=" h-auto  lg:w-128 lg:h-80">
-            <img className="h-full w-full rounded-lg " src={urlToImage} />
+        <div className="lg:flex lg:flex-row ">
+          <div className=" h-72  lg:w-128 md:h-72 sm:h-60 lg:h-80">
+            <img
+              className="h-full w-full rounded-lg object-cover"
+              src={urlToImage}
+            />
           </div>
           <div className=" h-auto flex-1 ">
             <div className="lg:container lg:px-6 lg:py-2">

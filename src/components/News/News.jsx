@@ -9,10 +9,10 @@ const News = (props) => {
   ) : (
     <div className="lg:mt-4 transition ease-in-out delay-50 duration-300 hover:-translate-y-1 hover:scale-105 mb-2 ">
       <a href={props.data.url} target="_blank" className="inline-block">
-        <div className="sm:w-72 md:w-90 ">
-          <div className="overflow-hidden h-40">
+        <div className="sm:w-72 md:w-90 lg:w-72 xl:w-76 desktop:w-80">
+          <div className="overflow-hidden sm:h-60 h-72 md:h-72 sm-h-72 lg:h-44">
             <img
-              className="rounded-lg w-full h-full object-cover"
+              className="rounded-lg w-full h-full object-cover "
               src={props.data.urlToImage}
               alt=""
             />
