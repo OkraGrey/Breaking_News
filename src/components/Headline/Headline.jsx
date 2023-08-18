@@ -1,4 +1,4 @@
-const Headline = ({ data }) => {
+const Headline = ({ data, newsLoading }) => {
   // console.log("data :", data);
   const { url, urlToImage, title, content, publishedAt } = data;
   const dateObject = new Date(publishedAt);
@@ -10,36 +10,75 @@ const Headline = ({ data }) => {
     >
       <a href={url} className="inline lg:block">
         {/* Image for headline */}
-        <div className="lg:flex lg:flex-row ">
-          <div className=" h-72  lg:w-128 md:h-72 sm:h-60 lg:h-80">
-            <img
-              className="h-full w-full rounded-lg object-cover"
-              src={urlToImage}
-            />
+        <div
+          className={`${newsLoading && "animate-pulse"} lg:flex lg:flex-row`}
+        >
+          <div className={` h-72  lg:w-128 md:h-72 sm:h-60 lg:h-80"`}>
+            {newsLoading ? (
+              <div
+                className={`w-full h-full bg-slate-400 rounded-xl object-cover"`}
+              ></div>
+            ) : (
+              <img
+                className={`${
+                  newsLoading ? "opacity-0" : ""
+                } h-full w-full rounded-lg object-cover`}
+                src={urlToImage}
+              />
+            )}
           </div>
           <div className=" h-auto flex-1 ">
             <div className="lg:container lg:px-6 lg:py-2">
-              <div>
-                <h3
-                  className="text-xs text-gray-500/80
+              <div className="my-1">
+                {!newsLoading ? (
+                  <h3
+                    className="text-xs text-gray-500/80
                  mt-2 mb-1"
-                >
-                  {formattedDate}
-                </h3>
+                  >
+                    {formattedDate}
+                  </h3>
+                ) : (
+                  <div className={`w-20 h-5 bg-slate-400 rounded-md`}></div>
+                )}
               </div>
               <div>
-                <h1
-                  className="xl:text-4xl lg:text-3xl lg:font-bold lg:tracking-wider lg:pr-6
+                {!newsLoading ? (
+                  <h1
+                    className="xl:text-4xl lg:text-3xl lg:font-bold lg:tracking-wider lg:pr-6
                 text-2xl pb-1 tracking-wide
                 "
-                >
-                  {title}
-                </h1>
+                  >
+                    {title}
+                  </h1>
+                ) : (
+                  <>
+                    <div
+                      className={`w-full h-9 mb-1 bg-slate-400 rounded-md`}
+                    ></div>
+                    <div
+                      className={`phonemd: w-72 phonesm:w-80 sm:w-full h-12 bg-slate-400 phonelg:w-96 rounded-md mb-2`}
+                    ></div>
+                  </>
+                )}
               </div>
               <div>
-                <p className="xl:text-sm text-xs  xl:mt-5 lg:mt-1 text-gray-500 my-2">
-                  {content}
-                </p>
+                {!newsLoading ? (
+                  <p className="xl:text-sm text-xs  xl:mt-5 lg:mt-1 text-gray-500 my-2">
+                    {content}
+                  </p>
+                ) : (
+                  <>
+                    <div
+                      className={`w-full h-2 mb-1 bg-slate-400 rounded-md`}
+                    ></div>
+                    <div
+                      className={`w-full h-2 mb-1 bg-slate-400 rounded-md`}
+                    ></div>
+                    <div
+                      className={`w-full h-2 mb-1 bg-slate-400 rounded-md`}
+                    ></div>
+                  </>
+                )}
               </div>
             </div>
           </div>

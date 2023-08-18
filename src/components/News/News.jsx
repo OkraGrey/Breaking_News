@@ -10,7 +10,7 @@ const News = (props) => {
   useEffect(() => {
     setTimeout(() => {
       setNewsLoading(false);
-    }, 2000);
+    }, 5000);
   }, []);
   return props.index == 0 ? (
     <Headline data={props.data} newsLoading={newsLoading} />
@@ -50,14 +50,14 @@ const News = (props) => {
             )}
           </div>
 
-          <div className="text-2xl pb-1 tracking-wide">
+          <div className={`text-2xl pb-1 tracking-wide `}>
             {newsLoading ? (
               <>
                 <div
                   className={`w-full h-9 mb-1 bg-slate-400 rounded-md`}
                 ></div>
                 <div
-                  className={`phonemd: w-72 phonesm:w-80 sm:w-full h-12 bg-slate-400 phonelg:w-96 rounded-md`}
+                  className={`phonemd: w-72 phonesm:w-80 sm:w-full h-12 bg-slate-400 phonelg:w-96 rounded-md `}
                 ></div>
               </>
             ) : (

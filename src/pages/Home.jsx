@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <div className="w-full">
-      <div className="md:w-11/12 xl:w-9/12 container mt-8 mx-auto">
+      <div className="xl:w-9/12 container mt-8 mx-auto">
         <PageTitle title={"Breaking News...!"} />
         <NewsContainer articles={articles} />
       </div>
