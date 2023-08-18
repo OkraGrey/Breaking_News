@@ -18,7 +18,7 @@ const Header = () => {
   }, [window.innerWidth]);
   console.log("Toggle", toggle);
   return (
-    <nav className="w-full flex items-center justify-center max-md:flex-col   max-md:bg-white">
+    <nav className="w-full flex items-center justify-center max-md:flex-col max-md:bg-white">
       <div className="w-full max-md:flex justify-between ">
         <div className="max-md:h-12 h-8 max-md:w-8 w-8 rounded-md mx-4 max-md:ml-6 my-4 ">
           <a href="">
@@ -40,7 +40,7 @@ const Header = () => {
       <div className="w-full transition-all ease-in-out duration-500">
         {toggle && (
           <ul
-            className="flex flex-row justify-end mr-2  items-center text-xs text-gray-400/60
+            className="flex flex-col md:flex-row justify-end mr-2  items-center text-xs text-gray-400/60
           max-md:flex-col max-md:items-start  h-auto max-md:h-auto  max-md:relative
           max-md:bg-white max-md:z-[1] static md:z-auto
           max-md:top-0 max-md:left-0 max-md:opacity-100

@@ -10,7 +10,7 @@ const Element = ({ title }) => {
       <a
         className="hover:text-rose-400/100 
             after:absolute after:bg-rose-500/100 after:h-0.5 after:w-0 after:left-0
-            after:-bottom-1 hover:after:w-full after:my-2 after:duration-200 pb-4 pt-5 max-md:p-2"
+            after:-bottom-1 hover:after:w-full after:my-2 after:duration-200 sm:pb-4  max-md:p-2"
         href="/"
       >
         <li className="">{title}</li>
