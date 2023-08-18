@@ -6,6 +6,9 @@ export default {
   theme: {
     screens: {
       desktop: "1380px",
+      phonesm: "380px",
+      phonemd: "450px",
+      phonelg: "580px",
       ...defaultTheme.screens,
     },
     extend: {

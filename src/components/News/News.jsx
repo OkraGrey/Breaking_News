@@ -30,9 +30,7 @@ const News = (props) => {
             {newsLoading ? (
               <div
                 className={`${
-                  newsLoading
-                    ? "rounded-lg w-full h-full object-cover bg-slate-400"
-                    : ""
+                  newsLoading ? "rounded-lg w-full h-full  bg-slate-400" : ""
                 }`}
               ></div>
             ) : (
@@ -58,7 +56,9 @@ const News = (props) => {
                 <div
                   className={`w-full h-9 mb-1 bg-slate-400 rounded-md`}
                 ></div>
-                <div className={`w-full h-12 bg-slate-400 rounded-md`}></div>
+                <div
+                  className={`phonemd: w-72 phonesm:w-80 sm:w-full h-12 bg-slate-400 phonelg:w-96 rounded-md`}
+                ></div>
               </>
             ) : (
               <h1>{props.data.title}</h1>
