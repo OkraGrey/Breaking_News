@@ -1,6 +1,6 @@
 const SearchForm = ({ search, setSearch, onSubmit }) => {
   return (
-    <div className="container my-6 ">
+    <div className="w-full my-6 ">
       <form
         className="justify-center h-full "
         onSubmit={(e) => {
