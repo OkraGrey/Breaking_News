@@ -9,7 +9,8 @@ const SearchForm = ({ search, setSearch, onSubmit }) => {
         }}
       >
         <div
-          className="flex justify-center items-center border-8 border-rose-400 
+          className="flex  max-sm:flex-col  justify-center items-center border-8 border-rose-400 
+
         rounded-2xl  bg-rose-50 "
         >
           <input
@@ -20,12 +21,12 @@ const SearchForm = ({ search, setSearch, onSubmit }) => {
             }}
             type="text"
             placeholder="Type here ..."
-            className="flex-1 px-4 py-2 rounded-l-xl outline-none border-none shadow-rose-300/60  text-lg font-mono font-semibold h-14 bg-rose-50 ml-3 outline-1 
+            className="max-sm:h-6  max-sm:w-11/12 flex-1 px-4 py-2 rounded-l-xl outline-none border-none shadow-rose-300/60  text-lg font-mono font-semibold h-14 bg-rose-50 ml-3 outline-1 max-sm:mb-2 
           "
           />
           <button
             type="submit"
-            className="px-2 py-3  mx-auto bg-rose-400/30 rounded-r-md w-1/4 h-16 hover:bg-rose-400 transition-color duration-300 text-xl font-medium hover:border-rose-700 border-3"
+            className=" max-sm:w-full px-2 sm:py-3 max-sm:py-0  mx-auto bg-rose-400/30 rounded-r-md w-1/4 h-16 hover:bg-rose-400 transition-color duration-300 text-xl font-medium hover:border-rose-700 border-3 max-sm:h-10:"
           >
             Search
           </button>
